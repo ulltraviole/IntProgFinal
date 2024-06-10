@@ -1,0 +1,17 @@
+﻿<h1>Ders Ekle</h1>
+
+<p>Öğrenci ID: @ViewBag.OgrenciId</p>
+
+<form asp-controller="Student" asp-action="DersEkle" method="post">
+    <div class="form-group">
+        <input type="hidden" name="ogrenciId" value="@ViewBag.OgrenciId" />
+        <label for="dersId">Ders Seçin:</label>
+        <select class="form-control" id="dersId" name="dersId">
+            @foreach (var ders in ViewBag.Dersler)
+            {
+                <option value="@ders.Dersid">@ders.Dersad</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Ders Ekle</button>
+</form>
